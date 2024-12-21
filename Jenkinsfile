@@ -29,8 +29,11 @@ pipeline {
         }
         stage('Run Integration Tests') {
             when {
-                // Tahap ini hanya akan dijalankan pada branch 'main'
-                branch 'main'
+                // Pengujian integrasi hanya dilakukan pada branch 'main' dan 'develop'
+                anyOf {
+                    branch 'main'
+                    branch 'develop'
+                }
             }
             steps {
                 echo 'Running integration tests...'
