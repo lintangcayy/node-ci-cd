@@ -18,13 +18,13 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 // Menginstal semua dependensi proyek
-                sh 'npm install'
+                bat 'npm install'
             }
         }
         stage('Run Unit Tests') {
             steps {
                 // Menjalankan unit test untuk memastikan aplikasi berfungsi dengan baik
-                sh 'npm test'
+                bat 'npm test'
             }
         }
         stage('Run Integration Tests') {
@@ -35,14 +35,14 @@ pipeline {
             steps {
                 echo 'Running integration tests...'
                 // Menjalankan integrasi test
-                sh 'npm run integration-test' // Tambahkan perintah untuk pengujian integrasi
+                bat 'npm run integration-test' // Tambahkan perintah untuk pengujian integrasi
             }
         }
         stage('Build') {
             steps {
                 echo 'Building the application...'
                 // Proses build proyek
-                sh 'npm run build' // Proses build aplikasi
+                bat 'npm run build' // Proses build aplikasi
             }
         }
         stage('Deploy to Staging') {
@@ -53,7 +53,7 @@ pipeline {
             steps {
                 echo 'Deploying to staging server...'
                 // Proses deployment ke server staging
-                sh 'npm run deploy-staging' // Script untuk deploy ke server staging
+                bat 'npm run deploy-staging' // Script untuk deploy ke server staging
             }
         }
     }
